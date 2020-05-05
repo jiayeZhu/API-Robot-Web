@@ -1,6 +1,6 @@
 <template>
     <el-table
-        :data="tableData"
+        :data="modellist"
         border
         style="width: 100%">
         <el-table-column
@@ -18,12 +18,12 @@
 
 <script>
   export default {
-    data() {
-      return {
-        
+    computed: {
+      modellist () {
+        console.log('Generating model list!')
+        return this.$store.state.modellist;
       }
-    },
-    props: ["tableData"]
+    }
   }
 </script>
 

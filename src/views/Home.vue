@@ -1,10 +1,10 @@
 <template>
 <div>
-  <AddAttribute v-on:add-att="addAtt" />
+  <AddAttribute />
   <el-row :gutter="20">
     <el-col :span="12" :offset="6">
       <div class="grid-content bg-purple">
-        <ModelList v-bind:tableData="tableData"/>
+        <ModelList />
       </div>
     </el-col>
   </el-row>
@@ -18,28 +18,13 @@ import ModelList from '@/components/ModelList.vue'
 import AddAttribute from '@/components/AddAttribute.vue'
 export default {
   name: 'Home',
-  data() {
-    return {
-      tableData: [{
-          name: 'name1',
-          type: 'type1'
-        }, {
-          name: 'name2',
-          type: 'type2'
-        }]
-    }
-  },
   components: {
     ModelList,
     AddAttribute
   },
   methods: {
-    addAtt: function (newAtt) {
-        console.log(newAtt.name, newAtt.type);
-        this.tableData = [...this.tableData, newAtt];
-    },
     clearAll: function() {
-      this.tableData = [];
+      this.$store.dispatch('clearAll');
     }
   }
 }

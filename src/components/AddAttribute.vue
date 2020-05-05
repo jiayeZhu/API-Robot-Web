@@ -28,11 +28,7 @@
     methods: {
       addAtt(e) {
         e.preventDefault();
-        console.log(this.newattribute.name);
-        // Send up to parent
-        this.$emit('add-att', this.newattribute);
-
-        this.title = '';
+        this.$store.dispatch('addAtt', this.newattribute);
       }
     }
   }
